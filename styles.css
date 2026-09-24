@@ -1,16 +1,16 @@
 :root {
-  --bg: #090d15;
-  --bg-alt: #0f172a;
-  --panel: #121b2e;
-  --panel-2: #1b2438;
-  --text: #f5f7ff;
-  --muted: #c7d1ea;
-  --primary: #ff5c3d;
-  --primary-2: #ff8a5b;
-  --secondary: #68f0ff;
-  --secondary-2: #8cffd1;
-  --line: rgba(255, 255, 255, 0.09);
-  --shadow: 0 24px 60px rgba(4, 11, 25, 0.42);
+  --bg: #07111d;
+  --bg-alt: #0d1b2a;
+  --panel: #0e1d2d;
+  --panel-2: #13283c;
+  --text: #f4f9ff;
+  --muted: #c6d5eb;
+  --primary: #ff5a36;
+  --primary-2: #ff8d5c;
+  --secondary: #67f6d0;
+  --secondary-2: #80d9ff;
+  --line: rgba(255, 255, 255, 0.1);
+  --shadow: 0 24px 60px rgba(4, 15, 28, 0.48);
 }
 
 * {
@@ -25,9 +25,9 @@ body {
   margin: 0;
   font-family: "Inter", sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(255, 92, 61, 0.22), transparent 18%),
-    radial-gradient(circle at 85% 15%, rgba(104, 240, 255, 0.12), transparent 18%),
-    linear-gradient(180deg, #090d15 0%, #0d1220 30%, #111827 100%);
+    radial-gradient(circle at top left, rgba(255, 90, 54, 0.24), transparent 18%),
+    radial-gradient(circle at 80% 18%, rgba(103, 246, 208, 0.14), transparent 20%),
+    linear-gradient(180deg, #07111d 0%, #0d1a29 28%, #101d2d 100%);
   color: var(--text);
   line-height: 1.6;
 }
@@ -35,12 +35,12 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: auto auto 10% -10%;
-  width: 320px;
-  height: 320px;
+  inset: auto auto 8% -6%;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
-  background: rgba(104, 240, 255, 0.08);
-  filter: blur(70px);
+  background: rgba(103, 246, 208, 0.1);
+  filter: blur(80px);
   pointer-events: none;
 }
 
