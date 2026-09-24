@@ -371,9 +371,9 @@ input {
 
 .brand-timeline {
   display: grid;
-  grid-template-columns: 1.1fr 1fr 0.9fr 1fr;
+  grid-template-columns: 1.2fr 1fr 0.8fr 1.1fr;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   position: relative;
 }
 
@@ -465,35 +465,35 @@ input {
 
 .x-stage {
   justify-content: center;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.x-stage {
-  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 8px;
   transform: translateY(6px);
+  position: relative;
 }
 
 .x-stage img {
   width: 124px;
   filter: drop-shadow(0 0 18px rgba(255, 90, 54, 0.75));
   animation: xPulse 2.2s ease-in-out infinite;
+  transform-origin: center center;
 }
 
 .final-stage {
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   padding-right: 10px;
   flex-direction: column;
   gap: 8px;
   transform: translateY(2px);
+  position: relative;
 }
 
 .final-stage img {
   width: 190px;
   filter: drop-shadow(0 0 18px rgba(255, 90, 54, 0.82));
   animation: logoPulse 2s ease-in-out infinite;
+  transform-origin: center center;
 }
 
 .stage-copy-small {
@@ -506,7 +506,7 @@ input {
 
 @keyframes runnerSlide {
   0% {
-    transform: translateX(40px) scale(0.82);
+    transform: translateX(42px) scale(0.82);
     opacity: 0.5;
   }
   18% {
@@ -522,7 +522,7 @@ input {
     opacity: 1;
   }
   100% {
-    transform: translateX(-40px) scale(0.94);
+    transform: translateX(-38px) scale(0.96);
     opacity: 0.7;
   }
 }
@@ -533,19 +533,19 @@ input {
     opacity: 0.7;
   }
   25% {
-    transform: scale(1.02) translateX(-4px);
+    transform: scale(1.02) translateX(-2px);
     opacity: 0.9;
   }
   50% {
-    transform: scale(1.18) translateX(-10px);
+    transform: scale(1.18) translateX(-8px);
     opacity: 1;
   }
   75% {
-    transform: scale(1.24) translateX(-18px);
+    transform: scale(1.25) translateX(-14px);
     opacity: 1;
   }
   100% {
-    transform: scale(1.32) translateX(-24px);
+    transform: scale(1.3) translateX(-18px);
     opacity: 0.95;
   }
 }
@@ -557,16 +557,16 @@ input {
     opacity: 0.82;
   }
   25% {
-    transform: scale(1.04) translateX(-2px);
+    transform: scale(1.04) translateX(-1px);
     opacity: 0.94;
   }
   50% {
-    transform: scale(1.12) translateX(-4px);
+    transform: scale(1.12) translateX(-2px);
     opacity: 1;
     filter: drop-shadow(0 0 30px rgba(255, 90, 54, 1));
   }
   100% {
-    transform: scale(1.18) translateX(-6px);
+    transform: scale(1.18) translateX(-3px);
     opacity: 1;
     filter: drop-shadow(0 0 32px rgba(255, 90, 54, 1));
   }
