@@ -373,7 +373,8 @@ input {
   grid-template-columns: 1.2fr 1fr 1fr 1.1fr;
   align-items: center;
   gap: 18px;
-  min-height: 180px;
+  min-height: 210px;
+  perspective: 1000px;
 }
 
 .brand-evolution-shell::before {
@@ -382,10 +383,11 @@ input {
   left: 0;
   right: 0;
   top: 50%;
-  height: 4px;
-  background: linear-gradient(90deg, rgba(255, 90, 54, 0.1), rgba(255, 90, 54, 0.72), rgba(103, 246, 208, 0.2), rgba(255, 90, 54, 0.08));
+  height: 5px;
+  background: linear-gradient(90deg, rgba(255, 90, 54, 0.08), rgba(255, 90, 54, 0.8), rgba(103, 246, 208, 0.28), rgba(255, 90, 54, 0.08));
   border-radius: 999px;
   transform: translateY(-50%);
+  animation: trackGlow 4.5s ease-in-out infinite alternate;
 }
 
 .brand-phase {
@@ -397,23 +399,28 @@ input {
   justify-content: center;
 }
 
+.phase-wordmark {
+  animation: wordmarkIntro 3.8s ease-in-out infinite alternate;
+}
+
 .phase-wordmark img {
   width: min(100%, 220px);
   filter: drop-shadow(0 0 18px rgba(255, 90, 54, 0.22));
   opacity: 0.92;
-  transform: translateX(-8px);
-  animation: wordmarkPulse 3.2s ease-in-out infinite alternate;
+  transform: translateX(-8px) scale(1);
 }
 
 .phase-runner {
   position: relative;
+  animation: runnerStage 6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 .runner-figure {
   position: relative;
   width: 148px;
   height: 148px;
-  animation: runnerEnter 2.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-origin: center;
+  animation: runnerTrail 6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 .runner-figure img {
@@ -421,13 +428,14 @@ input {
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 18px 28px rgba(180, 196, 255, 0.26));
-  transform: rotate(-2deg);
+  transform: rotate(-2deg) scale(1.03);
 }
 
 .speed-lines {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  animation: speedBurst 6s ease-in-out infinite;
 }
 
 .speed-lines span {
@@ -439,7 +447,7 @@ input {
   border-radius: 999px;
   background: linear-gradient(90deg, rgba(255,255,255,0), rgba(103, 246, 208, 0.8), rgba(255, 90, 54, 0.2));
   transform-origin: left center;
-  animation: speedTrace 1.5s ease-in-out infinite alternate;
+  animation: speedTrace 1.6s ease-in-out infinite alternate;
 }
 
 .speed-lines span:nth-child(2) {
@@ -456,74 +464,154 @@ input {
   animation-delay: 0.5s;
 }
 
+.phase-x {
+  animation: xStage 6s ease-in-out infinite;
+}
+
 .phase-x img {
   width: min(100%, 120px);
   filter: drop-shadow(0 0 30px rgba(255, 90, 54, 0.7));
-  animation: xPulse 2.3s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+.phase-logo {
+  animation: logoStage 6s ease-in-out infinite;
 }
 
 .phase-logo img {
   width: min(100%, 170px);
   filter: drop-shadow(0 0 26px rgba(255, 90, 54, 0.3));
-  animation: finalLogoPulse 2.4s ease-in-out infinite alternate;
 }
 
-@keyframes wordmarkPulse {
+@keyframes trackGlow {
   0% {
-    opacity: 0.8;
+    opacity: 0.6;
+    box-shadow: 0 0 12px rgba(255, 90, 54, 0.15);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 18px rgba(255, 90, 54, 0.28);
+  }
+}
+
+@keyframes wordmarkIntro {
+  0% {
+    opacity: 0.7;
+    transform: translateX(-12px) scale(0.96);
     filter: drop-shadow(0 0 10px rgba(255, 90, 54, 0.12));
   }
+  50% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
   100% {
     opacity: 1;
-    filter: drop-shadow(0 0 18px rgba(255, 90, 54, 0.28));
+    transform: translateX(4px) scale(1.02);
+    filter: drop-shadow(0 0 20px rgba(255, 90, 54, 0.3));
   }
 }
 
-@keyframes runnerEnter {
+@keyframes runnerStage {
+  0%, 18% {
+    opacity: 0.2;
+    transform: translateX(-24px) scale(0.8);
+  }
+  28%, 42% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  58%, 72% {
+    opacity: 1;
+    transform: translateX(20px) scale(1.06);
+  }
+  100% {
+    opacity: 0.2;
+    transform: translateX(52px) scale(0.8);
+  }
+}
+
+@keyframes runnerTrail {
   0% {
     opacity: 0;
-    transform: translateX(-55px) scale(0.8);
+    transform: translateX(-48px) scale(0.74) rotate(-10deg);
   }
-  30% {
+  18% {
+    opacity: 0.7;
+  }
+  34% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(-2deg);
+  }
+  56% {
+    opacity: 1;
+    transform: translateX(18px) scale(1.06) rotate(6deg);
+  }
+  72% {
+    opacity: 1;
+    transform: translateX(34px) scale(1.08) rotate(12deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(72px) scale(0.85) rotate(18deg);
+  }
+}
+
+@keyframes speedBurst {
+  0%, 30% {
+    opacity: 0;
+  }
+  36%, 58% {
     opacity: 1;
   }
   100% {
-    opacity: 1;
-    transform: translateX(8px) scale(1);
+    opacity: 0;
   }
 }
 
 @keyframes speedTrace {
   0% {
     opacity: 0.3;
-    transform: scaleX(0.4);
+    transform: scaleX(0.3);
   }
   100% {
     opacity: 1;
-    transform: scaleX(1.1);
+    transform: scaleX(1.2);
   }
 }
 
-@keyframes xPulse {
-  0% {
-    transform: scale(0.96);
-    filter: drop-shadow(0 0 18px rgba(255, 90, 54, 0.45));
+@keyframes xStage {
+  0%, 38% {
+    opacity: 0;
+    transform: translateX(24px) scale(0.78);
+  }
+  50%, 68% {
+    opacity: 1;
+    transform: translateX(0) scale(1.04);
+  }
+  84% {
+    opacity: 1;
+    transform: translateX(-4px) scale(1.12);
   }
   100% {
-    transform: scale(1.06);
-    filter: drop-shadow(0 0 34px rgba(255, 90, 54, 0.8));
+    opacity: 0.8;
+    transform: translateX(-10px) scale(1.08);
   }
 }
 
-@keyframes finalLogoPulse {
-  0% {
-    opacity: 0.9;
-    transform: scale(0.98);
+@keyframes logoStage {
+  0%, 60% {
+    opacity: 0.2;
+    transform: translateX(26px) scale(0.88);
+  }
+  72%, 88% {
+    opacity: 1;
+    transform: translateX(0) scale(1.02);
+    filter: drop-shadow(0 0 28px rgba(255, 90, 54, 0.5));
   }
   100% {
     opacity: 1;
-    transform: scale(1.04);
-    filter: drop-shadow(0 0 28px rgba(255, 90, 54, 0.55));
+    transform: translateX(0) scale(1.06);
+    filter: drop-shadow(0 0 34px rgba(255, 90, 54, 0.72));
   }
 }
 
