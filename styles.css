@@ -513,18 +513,18 @@ input {
 
 @keyframes marquillaEntry {
   0% {
-    transform: translateX(-18px) scale(0.9);
-    opacity: 0.6;
+    transform: translateX(-26px) scale(0.9);
+    opacity: 0.4;
   }
-  22% {
-    transform: translateX(6px) scale(0.97);
-    opacity: 0.9;
+  18% {
+    transform: translateX(4px) scale(0.96);
+    opacity: 0.8;
   }
-  52% {
-    transform: translateX(12px) scale(1.02);
+  34% {
+    transform: translateX(12px) scale(1.01);
     opacity: 1;
   }
-  78% {
+  72% {
     transform: translateX(8px) scale(1.01);
     opacity: 1;
   }
@@ -536,69 +536,78 @@ input {
 
 @keyframes runnerSlide {
   0% {
-    transform: translateX(16px) scale(0.82);
+    transform: translateX(0) scale(0.7);
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(8px) scale(0.82);
     opacity: 0.4;
   }
-  18% {
-    transform: translateX(8px) scale(0.9);
+  38% {
+    transform: translateX(14px) scale(0.9);
     opacity: 0.8;
   }
-  42% {
-    transform: translateX(0) scale(1.02) rotate(-2deg);
+  58% {
+    transform: translateX(22px) scale(1.02) rotate(-2deg);
     opacity: 1;
   }
-  70% {
-    transform: translateX(30px) scale(1.05) rotate(1deg);
+  78% {
+    transform: translateX(34px) scale(1.04) rotate(1deg);
     opacity: 1;
   }
   100% {
     transform: translateX(52px) scale(1.02);
-    opacity: 0.95;
+    opacity: 1;
   }
 }
 
 @keyframes xPulse {
-  0%, 100% {
+  0% {
+    transform: scale(0.8) translateX(-18px);
+    opacity: 0;
+  }
+  24% {
     transform: scale(0.9) translateX(-10px);
-    opacity: 0.2;
+    opacity: 0.35;
   }
-  18% {
-    transform: scale(0.96) translateX(-4px);
-    opacity: 0.7;
-  }
-  42% {
-    transform: scale(1.04) translateX(8px);
-    opacity: 1;
+  46% {
+    transform: scale(1.02) translateX(6px);
+    opacity: 0.9;
   }
   70% {
-    transform: scale(1.08) translateX(20px);
+    transform: scale(1.08) translateX(18px);
+    opacity: 1;
+  }
+  86% {
+    transform: scale(1.08) translateX(22px);
     opacity: 1;
   }
   100% {
-    transform: scale(1.08) translateX(30px);
+    transform: scale(1.08) translateX(24px);
     opacity: 1;
   }
 }
 
 @keyframes logoPulse {
-  0%, 100% {
-    transform: scale(1) translateX(0);
-    filter: drop-shadow(0 0 18px rgba(255, 90, 54, 0.82));
-    opacity: 0.82;
+  0%, 30% {
+    transform: scale(0.96) translateX(0);
+    filter: drop-shadow(0 0 18px rgba(255, 90, 54, 0.2));
+    opacity: 0.7;
   }
-  25% {
-    transform: scale(1.04) translateX(-1px);
-    opacity: 0.94;
+  55% {
+    transform: scale(1.02) translateX(0);
+    filter: drop-shadow(0 0 24px rgba(255, 90, 54, 0.8));
+    opacity: 0.9;
   }
-  50% {
-    transform: scale(1.12) translateX(-2px);
+  78% {
+    transform: scale(1.08) translateX(0);
+    filter: drop-shadow(0 0 28px rgba(255, 90, 54, 1));
     opacity: 1;
-    filter: drop-shadow(0 0 30px rgba(255, 90, 54, 1));
   }
   100% {
-    transform: scale(1.18) translateX(-3px);
-    opacity: 1;
+    transform: scale(1.12) translateX(0);
     filter: drop-shadow(0 0 32px rgba(255, 90, 54, 1));
+    opacity: 1;
   }
 }
 
