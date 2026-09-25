@@ -32,6 +32,43 @@ const countdown = () => {
 
 countdown();
 
+const slides = Array.from(document.querySelectorAll(".slide"));
+const dots = Array.from(document.querySelectorAll(".dot"));
+
+if (slides.length) {
+  let activeIndex = 0;
+  let sliderTimer = null;
+
+  const showSlide = (index) => {
+    activeIndex = index;
+
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("active", slideIndex === activeIndex);
+    });
+
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("active", dotIndex === activeIndex);
+    });
+  };
+
+  const startSlider = () => {
+    clearInterval(sliderTimer);
+    sliderTimer = setInterval(() => {
+      showSlide((activeIndex + 1) % slides.length);
+    }, 3200);
+  };
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      showSlide(index);
+      startSlider();
+    });
+  });
+
+  showSlide(0);
+  startSlider();
+}
+
 const form = document.querySelector(".contact-form");
 if (form) {
   form.addEventListener("submit", (event) => {
