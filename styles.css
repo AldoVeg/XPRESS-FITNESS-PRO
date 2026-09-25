@@ -172,7 +172,7 @@ input {
   mask-repeat: no-repeat;
   -webkit-mask-position: 100% 0;
   mask-position: 100% 0;
-  animation: brandSheen 6s cubic-bezier(0.45, 0, 0.25, 1) 1.1s infinite;
+  animation: brandSheen 5s cubic-bezier(0.45, 0, 0.25, 1) 1.1s infinite;
 }
 
 .brand-tagline {
@@ -222,13 +222,8 @@ input {
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.main-nav > a:hover,
-.main-nav > a.is-wake {
+.main-nav > a:hover {
   color: var(--text);
-}
-
-.main-nav > a.is-wake {
-  text-shadow: 0 0 14px rgba(255, 45, 70, 0.75);
 }
 
 .main-nav > a:hover::after {
@@ -237,7 +232,7 @@ input {
 
 /* Primera carrera: las palabras aparecen a medida que pasa el corredor.
    Si el script no corre, aparecen solas a los 6.5 s. */
-@media (min-width: 1141px) and (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   .js-intro .main-nav > a {
     opacity: 0;
     transform: translateY(6px);
@@ -248,46 +243,6 @@ input {
   .js-intro .main-nav > a.is-revealed {
     animation: wordDrop 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
-}
-
-/* Las redes viven en el riel lateral; aquí solo se muestran dentro del menú móvil */
-.nav-social {
-  display: none;
-}
-
-.nav-toggle {
-  display: none;
-  flex-shrink: 0;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 46px;
-  height: 46px;
-  padding: 0 12px;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.04);
-  cursor: pointer;
-}
-
-.nav-toggle span {
-  display: block;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--text);
-  transition: transform 0.25s ease, opacity 0.2s ease;
-}
-
-.nav-toggle[aria-expanded="true"] span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.nav-toggle[aria-expanded="true"] span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-toggle[aria-expanded="true"] span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* "Cotiza ahora" + logo: el botón se desvanece hacia el logo */
@@ -656,66 +611,55 @@ input {
   }
 }
 
+/* Tablet y celular: el menú siempre visible, en una segunda fila bajo la marca.
+   El corredor recorre el borde inferior de esa fila y va revelando las palabras. */
 @media (max-width: 1140px) {
-  .nav-toggle {
-    display: inline-flex;
+  .nav-wrap {
+    flex-wrap: wrap;
+    row-gap: 2px;
+    min-height: 0;
+    padding-top: 8px;
+  }
+
+  .nav-action {
     margin-left: auto;
   }
 
   .main-nav {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 100vw;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
+    order: 3;
+    width: 100%;
     margin: 0;
-    padding: 8px max(16px, calc((100vw - 1180px) / 2)) 18px;
-    background: #0d0d11;
-    border-bottom: 1px solid var(--line);
-    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.45);
-    opacity: 0;
-    visibility: hidden;
-    transform: translate(-50%, -8px);
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    padding: 4px 0 10px;
+    justify-content: space-between;
+    gap: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    font-size: 0.86rem;
   }
 
-  .main-nav.is-open {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, 0);
-  }
-
-  .main-nav > a {
-    padding: 14px 4px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    font-size: 1.05rem;
-  }
-
-  .main-nav > a::after {
+  .main-nav::-webkit-scrollbar {
     display: none;
   }
 
-  .nav-social {
-    display: inline-flex;
-    gap: 8px;
-    padding: 14px 0 0;
+  .main-nav > a {
+    flex: 0 0 auto;
+    padding: 6px 0;
+    color: var(--text);
   }
 }
 
 @media (max-width: 720px) {
   .site-header {
-    --nav-h: 64px;
     --dock-w: 56px;
   }
 
-  .site-header.is-scrolled {
-    --nav-h: 56px;
+  .nav-wrap {
+    column-gap: 12px;
   }
 
-  .nav-wrap {
-    gap: 12px;
+  .main-nav {
+    gap: 10px;
+    font-size: 0.8rem;
   }
 
   .brand-logo,
@@ -2332,6 +2276,179 @@ input {
     bottom: 14px;
     padding: 0.8rem 1rem;
     font-size: 0.72rem;
+  }
+}
+
+/* ---------- Celular: la mayoría de clientes compra desde aquí ---------- */
+@media (max-width: 720px) {
+  .section,
+  .editorial {
+    padding: 56px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .section-heading h2,
+  .editorial-copy h2 {
+    font-size: clamp(1.7rem, 7.5vw, 2.2rem);
+  }
+
+  .section-lead,
+  .editorial-copy p {
+    font-size: 0.96rem;
+  }
+
+  /* Portada compacta: el carrusel entra en la primera pantalla */
+  .hero {
+    padding: 24px 0 36px;
+  }
+
+  .hero-grid {
+    gap: 22px;
+  }
+
+  .hero-copy h1 {
+    margin: 10px 0 12px;
+    font-size: clamp(2rem, 9vw, 2.6rem);
+  }
+
+  .hero-copy p {
+    font-size: 0.96rem;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .hero-actions .btn {
+    flex: 1;
+    min-height: 46px;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.86rem;
+  }
+
+  .hero-stats {
+    margin-top: 22px;
+    gap: 8px;
+  }
+
+  .hero-stats li {
+    padding: 10px 8px;
+    text-align: center;
+  }
+
+  .hero-stats strong {
+    font-size: 1.05rem;
+  }
+
+  .hero-stats span {
+    font-size: 0.7rem;
+    line-height: 1.3;
+  }
+
+  .hero-visual {
+    gap: 22px;
+    padding-top: 8px;
+  }
+
+  .floating-box {
+    display: none;
+  }
+
+  /* Cómo trabajamos: una columna */
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .trust-copy h2 {
+    font-size: 1.3rem;
+  }
+
+  .trust-badges span {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  /* Categorías: tarjetas bajas, solo portada, conteo y nombre */
+  .category-grid {
+    gap: 10px;
+  }
+
+  .category-card {
+    padding-bottom: 14px;
+  }
+
+  .category-card p {
+    display: none;
+  }
+
+  .category-count {
+    padding: 0 12px;
+    font-size: 0.64rem;
+  }
+
+  .category-card h3 {
+    padding: 0 12px;
+    font-size: 1.05rem;
+  }
+
+  /* Filtros: una sola fila deslizable */
+  .filter-chips {
+    flex-wrap: nowrap;
+    margin: 0 -16px 20px;
+    padding: 0 16px 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .filter-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-chip {
+    flex: 0 0 auto;
+    padding: 0.5rem 0.95rem;
+    font-size: 0.85rem;
+  }
+
+  .sort-control {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .editorial-grid {
+    gap: 24px;
+  }
+
+  .goal-row {
+    grid-template-columns: 38px 1fr;
+    gap: 10px;
+  }
+
+  .goal-num {
+    font-size: 1.2rem;
+  }
+
+  .kit-thumbs img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .faq-list summary {
+    font-size: 0.98rem;
+  }
+}
+
+/* Celulares angostos (≤ 380 px): el menú entra completo en una línea */
+@media (max-width: 380px) {
+  .main-nav {
+    gap: 6px;
+    font-size: 0.74rem;
   }
 }
 

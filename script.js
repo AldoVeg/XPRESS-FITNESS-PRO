@@ -19,15 +19,15 @@ if (siteHeader) {
   onScroll();
 }
 
-/* ---------- Corredor del encabezado ----------
+/* ---------- Corredor del encabezado (una sola vez por carga) ----------
    1. Sale de detrás de la última "S" de XPRESS (la marquilla va por encima).
-   2. Salta a la pista del borde inferior y corre revelando las palabras del menú
-      (primera vuelta) o encendiéndolas (vueltas siguientes).
+   2. Salta a la pista del borde inferior y corre revelando las palabras del menú.
    3. Da un salto final y encaja en el hueco de la X que lo espera.
    4. X + corredor se funden (destello, desenfoque) y se transforman en el logo,
-      que crece a su tamaño final. En la vuelta siguiente vuelve a ser X.
-   Las posiciones se miden en cada vuelta sin transformaciones, así se adapta
-   a cualquier ancho y al encabezado compacto. */
+      que crece a su tamaño final y queda así. Después solo sigue el brillo
+      de la marquilla (CSS, cada 5 s).
+   Las posiciones se miden al momento sin transformaciones, así se adapta
+   a cualquier ancho (en celular el menú va en una segunda fila). */
 
 const initHeaderRun = () => {
   const root = document.documentElement;
@@ -52,13 +52,9 @@ const initHeaderRun = () => {
   const RUN_SPEED = 360; // px por segundo sobre la pista
   const EXIT_TIME = 760; // salir de detrás de la "S" y bajar a la pista
   const JUMP_TIME = 620; // salto final hacia la X
-  const REST_TIME = 4200; // pausa entre vueltas (el logo queda formado)
 
   // Hueco del corredor dentro del logo (medido sobre logo.png, 671 × 372)
   const HOLE = { left: 0.3398, top: 0.1774 };
-
-  let firstLap = true;
-  let lapTimer = null;
 
   // Posición de un elemento dentro de .nav-wrap sin contar transformaciones
   const layoutBox = (el) => {
@@ -101,10 +97,7 @@ const initHeaderRun = () => {
 
   const at = (x, y) => `translate(${x}px, ${y}px)`;
 
-  const lap = () => {
-    // El logo vuelve a ser X mientras el corredor está detrás de la "S"
-    dock.classList.remove("is-logo", "is-flash");
-
+  const run = () => {
     const g = measure();
     const jumpX = g.end.x - 78;
     const runTime = (Math.max(jumpX - g.landX, 40) / RUN_SPEED) * 1000;
@@ -112,7 +105,6 @@ const initHeaderRun = () => {
     const onTrack = EXIT_TIME / total;
     const offTrack = (EXIT_TIME + runTime) / total;
     const peak = offTrack + (1 - offTrack) * 0.55;
-    const reveal = firstLap;
 
     runner.animate(
       [
@@ -149,66 +141,31 @@ const initHeaderRun = () => {
       { duration: total }
     );
 
-    // Cada palabra aparece (o se enciende) cuando el centro del corredor pasa debajo
-    g.words.forEach(({ el, x }) => {
+    // Cada palabra aparece cuando el centro del corredor pasa debajo.
+    // Las que quedan antes del punto de aterrizaje (celular) aparecen escalonadas al aterrizar.
+    g.words.forEach(({ el, x }, i) => {
       const runnerCenter = x - g.runnerW / 2;
-      if (runnerCenter < g.landX || runnerCenter > jumpX) return;
-      const passAt = EXIT_TIME + ((runnerCenter - g.landX) / RUN_SPEED) * 1000;
-      setTimeout(() => {
-        if (reveal) {
-          el.classList.add("is-revealed");
-        } else {
-          el.classList.add("is-wake");
-          setTimeout(() => el.classList.remove("is-wake"), 650);
-        }
-      }, passAt);
+      if (runnerCenter > jumpX) return;
+      const passAt =
+        runnerCenter < g.landX
+          ? EXIT_TIME + i * 90
+          : EXIT_TIME + ((runnerCenter - g.landX) / RUN_SPEED) * 1000;
+      setTimeout(() => el.classList.add("is-revealed"), passAt);
     });
 
-    // Encaje: destello y transformación en logo
+    // Encaje: destello y transformación en logo, que queda formado
     setTimeout(() => {
       dock.classList.add("is-flash", "is-logo");
     }, total * 0.95);
 
-    if (reveal) setTimeout(finishIntro, total + 400);
-    firstLap = false;
-    lapTimer = setTimeout(lap, total + REST_TIME);
+    setTimeout(finishIntro, total + 400);
   };
 
-  document.addEventListener("visibilitychange", () => {
-    clearTimeout(lapTimer);
-    if (!document.hidden) lapTimer = setTimeout(lap, 800);
-  });
-
   // Arranca cuando la marquilla termina de entrar
-  lapTimer = setTimeout(lap, 1000);
+  setTimeout(run, 1000);
 };
 
 initHeaderRun();
-
-/* ---------- Menú móvil ---------- */
-
-const navToggle = document.querySelector(".nav-toggle");
-const mainNav = document.getElementById("mainNav");
-
-if (navToggle && mainNav) {
-  const setMenu = (open) => {
-    navToggle.setAttribute("aria-expanded", String(open));
-    navToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-    mainNav.classList.toggle("is-open", open);
-  };
-
-  navToggle.addEventListener("click", () => {
-    setMenu(navToggle.getAttribute("aria-expanded") !== "true");
-  });
-
-  mainNav.addEventListener("click", (event) => {
-    if (event.target.closest("a")) setMenu(false);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setMenu(false);
-  });
-}
 
 /* ---------- Carrusel inclinado del hero ---------- */
 
