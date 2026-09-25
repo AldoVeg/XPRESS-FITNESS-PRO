@@ -3,131 +3,340 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XPRESS Fitness PRO | Máquinas para entrenar con estilo</title>
+    <title>XPRESS Fitness PRO | Equipos de gimnasio para casa en Perú</title>
     <meta
       name="description"
-      content="Máquinas de ejercicio premium para hogar y gimnasio. Compra con promociones, financiamiento y asesoría personalizada."
+      content="Bicicletas de spinning, trotadoras, mancuernas regulables, bancas y equipos de abdominales para entrenar en casa. Precios en soles y envíos a todo el Perú."
     />
-    <meta name="theme-color" content="#0a0d14" />
+    <meta name="theme-color" content="#0a0a0d" />
     <meta property="og:title" content="XPRESS Fitness PRO" />
     <meta
       property="og:description"
-      content="Máquinas premium, asesoría real y promociones para entrenar con más energía."
+      content="Cardio, fuerza y core para tu casa: 17 equipos con precios en soles, guías, rutinas de 20 minutos y envíos a todo el Perú."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:url" content="https://aldoveg.github.io/XPRESS-FITNESS-PRO/" />
+    <meta
+      property="og:image"
+      content="https://aldoveg.github.io/XPRESS-FITNESS-PRO/assets/productos/linea-rosa/contrapeso-ajustable-rosa.jpg"
+    />
+    <meta property="og:image:alt" content="Equipos de entrenamiento XPRESS Fitness PRO" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://aldoveg.github.io/XPRESS-FITNESS-PRO/" />
+    <link rel="icon" type="image/jpeg" href="assets/marca/circulo-xpress-fitness-pro.jpeg" />
+    <link rel="apple-touch-icon" href="assets/marca/circulo-xpress-fitness-pro.jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=8" />
+    <!-- Oculta el menú desde el primer pintado para que el corredor lo vaya revelando -->
+    <script>
+      document.documentElement.classList.add("js-intro");
+    </script>
   </head>
   <body>
-    <header class="topbar">
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-whatsapp" viewBox="0 0 24 24">
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linejoin="round"
+          d="M20.2 11.7a8.2 8.2 0 0 1-12.1 7.2L3.8 20l1.2-4.1a8.2 8.2 0 1 1 15.2-4.2z"
+        />
+        <path
+          fill="currentColor"
+          d="M9.1 7.9c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.1.1-.2.3 0 .5a6.2 6.2 0 0 0 2.9 2.5c.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4 0 .9-.6 1.8-1.6 1.9-2.6.4-6.9-3.3-6.9-6 0-.8.3-1.5.5-1.7z"
+        />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+        </g>
+        <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" />
+      </symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M13.4 21v-7.6H16l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.4-.1-2.3 0-3.9 1.4-3.9 4v2.1H7.7v3h2.6V21z"
+        />
+      </symbol>
+    </svg>
+
+    <header class="site-header">
       <div class="container nav-wrap">
-        <div class="brand">
+        <a class="brand" href="#inicio" aria-label="XPRESS Fitness PRO, ir al inicio">
           <img
             class="brand-logo"
             src="assets/marca/marquilla.png"
-            alt="Marquilla XPRESS Fitness PRO"
+            alt="XPRESS Fitness PRO"
+            width="845"
+            height="295"
           />
-        </div>
+          <img
+            class="brand-sheen"
+            src="assets/marca/marquilla.png"
+            alt=""
+            aria-hidden="true"
+            width="845"
+            height="295"
+          />
+          <span class="brand-tagline">Envíos a todo el Perú</span>
+        </a>
 
-        <nav class="main-nav" aria-label="Navegación principal">
+        <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
           <a href="#inicio">Inicio</a>
-          <a href="#maquinas">Máquinas</a>
-          <a href="#beneficios">Beneficios</a>
-          <a href="#ofertas">Ofertas</a>
-          <a href="#opiniones">Opiniones</a>
-          <a href="#contacto">Contacto</a>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#objetivo">Objetivos</a>
+          <a href="#espacio">Tu espacio</a>
+          <a href="#rutinas">Rutinas</a>
+          <a href="#preguntas">Preguntas</a>
+
+          <span class="nav-social">
+            <a
+              class="social-icon is-whatsapp"
+              href="https://wa.me/51944861404?text=Hola%20XPRESS%20Fitness%20PRO%2C%20quiero%20cotizar%20mi%20equipo."
+              target="_blank"
+              rel="noreferrer"
+              aria-label="WhatsApp"
+              ><svg aria-hidden="true"><use href="#i-whatsapp" /></svg
+            ></a>
+            <a
+              class="social-icon is-instagram"
+              href="https://instagram.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              ><svg aria-hidden="true"><use href="#i-instagram" /></svg
+            ></a>
+            <a
+              class="social-icon is-facebook"
+              href="https://facebook.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              ><svg aria-hidden="true"><use href="#i-facebook" /></svg
+            ></a>
+          </span>
         </nav>
 
-        <a
-          class="btn btn-primary"
-          href="https://wa.me/51944861404?text=Hola%20XPRESS%20Fitness%20PRO%2C%20quiero%20cotizar%20una%20m%C3%A1quina%20para%20mi%20espacio."
-          target="_blank"
-          rel="noreferrer"
-          >Cotiza ahora</a
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Abrir menú"
         >
+          <span></span><span></span><span></span>
+        </button>
+
+        <!-- "Cotiza ahora" y el logo forman una sola pieza: el botón se funde en el logo -->
+        <div class="nav-action">
+          <a
+            class="nav-cta"
+            href="https://wa.me/51944861404?text=Hola%20XPRESS%20Fitness%20PRO%2C%20quiero%20cotizar%20una%20m%C3%A1quina%20para%20mi%20espacio."
+            target="_blank"
+            rel="noreferrer"
+            >Cotiza ahora</a
+          >
+          <!-- La X espera con el hueco del corredor; al encajar se transforma en el logo -->
+          <span class="run-dock" aria-hidden="true">
+            <img class="dock-x" src="assets/marca/x.png" alt="" width="625" height="399" />
+            <img class="dock-logo" src="assets/marca/logo.png" alt="" width="671" height="372" />
+          </span>
+        </div>
+
+        <!-- El corredor sale de detrás de la última "S", recorre el encabezado y encaja en la X -->
+        <span class="header-run" aria-hidden="true">
+          <span class="run-track"><span class="run-track-fill"></span></span>
+          <span class="run-runner">
+            <img class="run-ghost run-ghost-2" src="assets/marca/Hombre.png" alt="" width="557" height="448" />
+            <img class="run-ghost run-ghost-1" src="assets/marca/Hombre.png" alt="" width="557" height="448" />
+            <img class="run-body" src="assets/marca/Hombre.png" alt="" width="557" height="448" />
+          </span>
+        </span>
       </div>
     </header>
 
+    <aside class="social-rail" aria-label="Redes sociales de XPRESS Fitness PRO">
+      <span class="social-rail-label">Síguenos</span>
+      <a
+        class="social-icon is-whatsapp"
+        href="https://wa.me/51944861404?text=Hola%20XPRESS%20Fitness%20PRO%2C%20quiero%20cotizar%20mi%20equipo."
+        target="_blank"
+        rel="noreferrer"
+        aria-label="WhatsApp"
+        ><svg aria-hidden="true"><use href="#i-whatsapp" /></svg
+      ></a>
+      <a
+        class="social-icon is-instagram"
+        href="https://instagram.com"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Instagram"
+        ><svg aria-hidden="true"><use href="#i-instagram" /></svg
+      ></a>
+      <a
+        class="social-icon is-facebook"
+        href="https://facebook.com"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Facebook"
+        ><svg aria-hidden="true"><use href="#i-facebook" /></svg
+      ></a>
+    </aside>
+
     <main>
+      <!-- 1. Inicio: variedad real del catálogo desde el primer segundo -->
       <section class="hero" id="inicio">
         <div class="container hero-grid">
           <div class="hero-copy">
             <span class="eyebrow">XPRESS FITNESS PRO</span>
             <h1>Tu energía. Tu rutina. Tu mejor versión.</h1>
             <p>
-              Equipos premium para transformar tu espacio en un centro de rendimiento real. Diseñados
-              para mejorar tu disciplina, elevar tu energía y convertir cada sesión en un avance visible.
+              Equipos de gimnasio para armar tu rutina en casa: cardio, fuerza y core, con envíos a
+              todo el Perú.
             </p>
 
             <div class="hero-actions">
-              <a
-                class="btn btn-primary"
-                href="https://wa.me/51944861404?text=Hola%20XPRESS%20Fitness%20PRO%2C%20quiero%20ver%20ofertas%20y%20cotizar%20mi%20equipo."
-                target="_blank"
-                rel="noreferrer"
-                >Reservar mi equipo</a
-              >
-              <a class="btn btn-secondary" href="#contacto">Solicitar cotización</a>
+              <a class="btn btn-primary" href="#catalogo">Ver el catálogo</a>
+              <a class="btn btn-secondary" href="#objetivo">¿Qué equipo va contigo?</a>
             </div>
 
-            <ul class="hero-stats" aria-label="Estadísticas del negocio">
-              <li><strong>24/7</strong><span>Asesoría activa</span></li>
-              <li><strong>4.9/5</strong><span>Experiencia real</span></li>
-              <li><strong>72h</strong><span>Entrega veloz</span></li>
+            <ul class="hero-stats" aria-label="XPRESS Fitness PRO en cifras">
+              <li><strong data-count-products>17</strong><span>Equipos en catálogo</span></li>
+              <li><strong>4</strong><span>Líneas de entrenamiento</span></li>
+              <li><strong>Perú</strong><span>Envíos a todo el país</span></li>
             </ul>
           </div>
 
-          <div class="hero-visual" aria-label="Máquinas de ejercicio">
-            <div class="badge badge-top">⚡ PROMO ACTIVA</div>
-            <div class="machine-card large-card hero-figure-card">
-              <img
-                class="hero-figure"
-                src="assets/productos/xpress-hero-entrenamiento.jpeg"
-                alt="Máquina de entrenamiento premium XPRESS Fitness PRO"
-              />
+          <div class="hero-visual" data-carousel>
+            <div class="carousel-stage">
+              <div
+                class="machine-card hero-carousel"
+                role="region"
+                aria-roledescription="carrusel"
+                aria-label="Equipos XPRESS Fitness PRO"
+                tabindex="0"
+              >
+                <div class="carousel-track">
+                  <figure
+                    class="slide is-active"
+                    style="--img: url('assets/productos/linea-rosa/contrapeso-ajustable-rosa.jpg')"
+                    data-label="Línea rosa"
+                    data-title="Set de pesas 2 en 1"
+                    data-product="set-rosa"
+                  >
+                    <img
+                      src="assets/productos/linea-rosa/contrapeso-ajustable-rosa.jpg"
+                      alt="Mancuernas rosadas con contrapeso ajustable de la línea rosa"
+                      width="667"
+                      height="1000"
+                      fetchpriority="high"
+                    />
+                  </figure>
+                  <figure
+                    class="slide"
+                    style="--img: url('assets/productos/cardio/bicicleta-spinning-volante-15kg.jpg')"
+                    data-label="Cardio"
+                    data-title="Bicicleta spinning volante 15 kg"
+                    data-product="spinning-15kg"
+                  >
+                    <img
+                      src="assets/productos/cardio/bicicleta-spinning-volante-15kg.jpg"
+                      alt="Bicicleta de spinning con volante de 15 kg"
+                      width="1000"
+                      height="1000"
+                      decoding="async"
+                    />
+                  </figure>
+                  <figure
+                    class="slide"
+                    style="--img: url('assets/productos/fuerza/banca-pecho-dds-predicador.jpg')"
+                    data-label="Fuerza"
+                    data-title="Banca de pecho DDS + predicador"
+                    data-product="banca-pecho"
+                  >
+                    <img
+                      src="assets/productos/fuerza/banca-pecho-dds-predicador.jpg"
+                      alt="Banca de pecho DDS multiposición con predicador"
+                      width="1000"
+                      height="1000"
+                      decoding="async"
+                    />
+                  </figure>
+                  <figure
+                    class="slide"
+                    style="--img: url('assets/productos/core/ab-coaster.jpg')"
+                    data-label="Core"
+                    data-title="AB Coaster"
+                    data-product="ab-coaster"
+                  >
+                    <img
+                      src="assets/productos/core/ab-coaster.jpg"
+                      alt="Máquina AB Coaster para abdominales"
+                      width="1000"
+                      height="996"
+                      decoding="async"
+                    />
+                  </figure>
+                  <figure
+                    class="slide"
+                    style="--img: url('assets/productos/cardio/trotadora-mecanica-5en1.jpg')"
+                    data-label="Cardio"
+                    data-title="Trotadora mecánica 5 en 1"
+                    data-product="trotadora-mecanica"
+                  >
+                    <img
+                      src="assets/productos/cardio/trotadora-mecanica-5en1.jpg"
+                      alt="Trotadora mecánica 5 en 1 con escaladora y disco twist"
+                      width="1000"
+                      height="1000"
+                      decoding="async"
+                    />
+                  </figure>
+                  <figure
+                    class="slide"
+                    style="--img: url('assets/productos/fuerza/barra-ejercicios-6en1-pared.jpg')"
+                    data-label="Fuerza"
+                    data-title="Barra de ejercicios 6 en 1"
+                    data-product="barra-pared"
+                  >
+                    <img
+                      src="assets/productos/fuerza/barra-ejercicios-6en1-pared.jpg"
+                      alt="Barra de ejercicios 6 en 1 instalada en la pared"
+                      width="1000"
+                      height="1000"
+                      decoding="async"
+                    />
+                  </figure>
+                </div>
+                <div class="carousel-progress" aria-hidden="true"><span></span></div>
+              </div>
             </div>
+
+            <div class="carousel-meta">
+              <p class="carousel-caption" aria-live="polite">
+                <span data-caption-label>Línea rosa</span>
+                <strong data-caption-title>Set de pesas 2 en 1</strong>
+              </p>
+              <button class="carousel-cta" type="button" data-open-product="set-rosa">Ver detalles</button>
+              <div class="carousel-dots" aria-label="Elegir imagen"></div>
+            </div>
+
             <div class="floating-box box-one">
-              <span>Resultados</span>
-              <strong>+32% energía</strong>
+              <span>Envíos</span>
+              <strong>A todo el Perú</strong>
             </div>
             <div class="floating-box box-two">
-              <span>Financiamiento</span>
-              <strong>Desde $99/mes</strong>
+              <span>Asesoría</span>
+              <strong>Por WhatsApp</strong>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="brands-strip" aria-label="Evolución visual de marca XPRESS Fitness PRO">
-        <div class="container brand-timeline">
-          <div class="brand-stage marquilla">
-            <img
-              src="assets/marca/marquilla.png"
-              alt="Marquilla XPRESS Fitness PRO"
-            />
-            <div class="stage-copy"></div>
-          </div>
-
-          <div class="brand-stage runner-stage">
-            <div class="speed-lines" aria-hidden="true"></div>
-            <img
-              src="assets/marca/Hombre.png"
-              alt="Hombre corredor XPRESS Fitness PRO"
-            />
-            <div class="stage-copy stage-copy-small"></div>
-          </div>
-
-          <div class="brand-stage final-stage">
-            <img
-              src="assets/marca/logo.png"
-              alt="Logo final XPRESS Fitness PRO"
-            />
-            <div class="stage-copy stage-copy-final"></div>
           </div>
         </div>
       </section>
@@ -135,271 +344,169 @@
       <section class="section trust-band">
         <div class="container trust-grid sales-strip">
           <div class="trust-copy">
-            <span class="eyebrow">Venta directa</span>
-            <h2>Movimiento real, asesoría rápida y compra sin fricción.</h2>
+            <span class="eyebrow">Cómo trabajamos</span>
+            <h2>Precios en soles, asesoría real y envíos a todo el Perú.</h2>
           </div>
           <div class="trust-badges">
-            <span>Garantía 24 meses</span>
-            <span>Instalación incluida</span>
-            <span>Cotización inmediata</span>
+            <span>Precios en soles</span>
+            <span>Envíos nacionales</span>
+            <span>Te ayudamos a elegir</span>
           </div>
         </div>
       </section>
 
-      <section class="section categories-section">
+      <!-- 2. Categorías: puerta de entrada al catálogo filtrado -->
+      <section class="section categories-section" id="categorias">
         <div class="container">
           <div class="section-heading center">
-            <span class="eyebrow">Tu rutina, tu estilo</span>
-            <h2>Equipos pensados para cada objetivo.</h2>
+            <span class="eyebrow">Cuatro líneas</span>
+            <h2>Elige por dónde empezar.</h2>
           </div>
-
-          <div class="category-grid">
-            <article class="category-card">
-              <span class="category-icon">🏋️</span>
-              <h3>Cardio</h3>
-              <p>Máquinas de alto desempeño para mejorar resistencia, energía y condición física.</p>
-            </article>
-            <article class="category-card">
-              <span class="category-icon">💪</span>
-              <h3>Fuerza</h3>
-              <p>Entrenamiento total con resistencia progresiva y control preciso para cada músculo.</p>
-            </article>
-            <article class="category-card">
-              <span class="category-icon">🔥</span>
-              <h3>Funcional</h3>
-              <p>Movimientos más naturales, más efectivos y mucho más motivadores para tu día a día.</p>
-            </article>
-            <article class="category-card">
-              <span class="category-icon">🎯</span>
-              <h3>Accesorios</h3>
-              <p>Complementos, seguimiento y asistencia para ayudarte a mantener la constancia.</p>
-            </article>
-          </div>
+          <div class="category-grid" data-categories></div>
         </div>
       </section>
 
-      <section class="section" id="beneficios">
+      <!-- 3. Catálogo completo (generado desde productos.js) -->
+      <section class="section alt" id="catalogo">
+        <div class="container">
+          <div class="section-heading catalog-heading">
+            <div>
+              <span class="eyebrow">Catálogo</span>
+              <h2 data-catalog-title>Todos nuestros equipos</h2>
+              <p class="section-lead" data-catalog-lead>
+                Toca cualquier equipo para verlo en grande, con sus datos y más fotos.
+              </p>
+            </div>
+            <label class="sort-control">
+              <span>Ordenar</span>
+              <select data-sort>
+                <option value="categoria">Por categoría</option>
+                <option value="precio-asc">Precio: menor a mayor</option>
+                <option value="precio-desc">Precio: mayor a menor</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="filter-chips" role="tablist" aria-label="Filtrar por categoría" data-filters></div>
+          <div class="catalog-grid" data-catalog aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- 4. Publicidad indirecta: orientar, no vender -->
+      <section class="section editorial" id="objetivo">
+        <div class="container editorial-grid">
+          <div class="editorial-copy">
+            <span class="eyebrow">Guía rápida</span>
+            <h2>¿Qué equipo va con tu objetivo?</h2>
+            <p>
+              No hace falta un gimnasio completo. Empieza por lo que quieres lograr y elige lo
+              más simple que te acerque a eso.
+            </p>
+            <p class="soft-contact">
+              ¿No sabes cuál elegir?
+              <a data-whatsapp="Hola, quiero que me ayuden a elegir un equipo según mi objetivo."
+                >Cuéntanos tu objetivo y te sugerimos el equipo más simple</a
+              >.
+            </p>
+          </div>
+          <div class="goal-list" data-goals></div>
+        </div>
+      </section>
+
+      <section class="section" id="espacio">
         <div class="container">
           <div class="section-heading center">
-            <span class="eyebrow">¿Por qué XPRESS?</span>
-            <h2>Diseñado para que el fitness sea parte de tu día.</h2>
+            <span class="eyebrow">Arma tu espacio</span>
+            <h2>Arma tu espacio, no un gimnasio completo.</h2>
+            <p class="section-lead">
+              Combina cardio, fuerza y core según los metros que tengas. Son ideas: puedes armarlo
+              distinto.
+            </p>
           </div>
-
-          <div class="feature-grid">
-            <article class="feature-card">
-              <div class="icon">⚙️</div>
-              <h3>Máquinas de alto rendimiento</h3>
-              <p>Materiales resistentes, tecnología inteligente y ergonomía que cuida tu cuerpo.</p>
-            </article>
-            <article class="feature-card">
-              <div class="icon">📈</div>
-              <h3>Resultados medibles</h3>
-              <p>Rutinas guiadas y entrenamientos que se adaptan a tu nivel para que avances sin freno.</p>
-            </article>
-            <article class="feature-card">
-              <div class="icon">🧠</div>
-              <h3>Motivación sostenida</h3>
-              <p>Te acompañamos para que la disciplina se convierta en hábito real y constante.</p>
-            </article>
-            <article class="feature-card">
-              <div class="icon">🔒</div>
-              <h3>Compra confiable</h3>
-              <p>Garantía, asesoría postventa, instalación y soporte para que compres sin riesgos.</p>
-            </article>
-          </div>
+          <div class="kit-grid" data-kits></div>
+          <p class="space-tip">
+            <strong>Antes de comprar, mide tu rincón.</strong> Cada equipo tiene su tamaño y su forma
+            de uso: la banca plana mide 110 × 65 cm y la trotadora mecánica tiene un área de trote de
+            133 × 41 cm. ¿Dudas con otro equipo?
+            <a data-whatsapp="Hola, quiero saber cuánto espacio ocupa un equipo.">Te pasamos las medidas</a>.
+          </p>
         </div>
       </section>
 
-      <section class="section alt" id="maquinas">
+      <section class="section editorial alt" id="rutinas">
         <div class="container">
           <div class="section-heading">
-            <span class="eyebrow">Nuestra propuesta</span>
-            <h2>Máquinas que impulsan tu rutina, tu estilo y tu energía.</h2>
-          </div>
-
-          <div class="product-grid">
-            <article class="product-card">
-              <img
-                src="assets/productos/xpress-runner-x9.jpeg"
-                alt="Entrenamiento de fuerza y resistencia"
-              />
-              <div class="product-content">
-                <div class="product-topline">
-                  <span>Cardio</span>
-                  <span class="price">$1,990</span>
-                </div>
-                <h3>XPRESS Runner X9</h3>
-                <p>Motor silencioso, pantalla inteligente y resistencia ajustable para correr con control.</p>
-                <ul>
-                  <li>Velocidad 1–18 km/h</li>
-                  <li>Inclinado 15%</li>
-                  <li>Bluetooth + app</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <img
-                src="assets/productos/xpress-power-lift-500.jpeg"
-                alt="Ejercicio con peso muerto"
-              />
-              <div class="product-content">
-                <div class="product-topline">
-                  <span>Fuerza</span>
-                  <span class="price">$1,560</span>
-                </div>
-                <h3>Power Lift 500</h3>
-                <p>Entrenamiento estructural para piernas, espalda y fuerza total con control preciso.</p>
-                <ul>
-                  <li>82 niveles de resistencia</li>
-                  <li>Monitor de pulsos</li>
-                  <li>Fácil almacenamiento</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <img
-                src="assets/productos/xpress-strength-max-7.jpeg"
-                alt="Mancuernas ajustables"
-              />
-              <div class="product-content">
-                <div class="product-topline">
-                  <span>Fuerza</span>
-                  <span class="price">$2,450</span>
-                </div>
-                <h3>Strength Max 7</h3>
-                <p>Fuerza total en un solo sistema: pecho, espalda, piernas y core con un ajuste profesional.</p>
-                <ul>
-                  <li>8 funciones principales</li>
-                  <li>Seguro ergonómico</li>
-                  <li>Acero reforzado</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section video-section">
-        <div class="container video-grid">
-          <div class="video-copy">
-            <span class="eyebrow">Mira la experiencia</span>
-            <h2>Más que máquinas: un sistema completo para entrenar con intención.</h2>
-            <p>
-              XPRESS Fitness PRO combina tecnología, diseño y acompañamiento real para que cada sesión sea más poderosa,
-              más constante y más efectiva desde el primer momento.
+            <span class="eyebrow">Rutinas</span>
+            <h2>20 minutos también cuentan.</h2>
+            <p class="section-lead">
+              Ideas simples para usar tu equipo sin que la rutina te ocupe toda la tarde.
             </p>
-            <ul class="mini-checks">
-              <li>Asesoría personalizada</li>
-              <li>Entrega rápida y segura</li>
-              <li>Club de beneficios y recompensas</li>
-            </ul>
           </div>
-
-          <div class="video-panel">
-            <img
-              src="assets/productos/xpress-producto-experiencia.jpeg"
-              alt="Prueba real de la experiencia XPRESS Fitness PRO"
-            />
-            <div class="video-badge">Prueba real</div>
-          </div>
+          <div class="routine-grid" data-routines></div>
+          <p class="disclaimer">
+            Rutinas orientativas para principiantes. Si tienes alguna condición de salud, consulta
+            con un profesional antes de empezar.
+          </p>
         </div>
       </section>
 
+      <!-- 5. Precios de temporada: solo rebajas reales, sin cuenta regresiva -->
       <section class="section promo-cta" id="ofertas">
-        <div class="container promo-grid">
-          <div>
-            <span class="eyebrow">Promoción activa</span>
-            <h2>Compra hoy y desbloquea un beneficio premium real.</h2>
-            <p>
-              Fin de temporada: descuento del 20%, instalación gratis y 3 meses de asesoría
-              personalizada. Además, suma puntos por cada compra y canjéalos por accesorios y upgrades.
-            </p>
-          </div>
-
-          <div class="promo-box">
-            <div class="offer-card">
-              <span class="offer-label">Oferta limitada</span>
-              <h3>-20% + instalación gratis</h3>
-              <div class="countdown" aria-label="Tiempo restante de la promoción">
-                <div><strong id="days">07</strong><span>Días</span></div>
-                <div><strong id="hours">12</strong><span>Horas</span></div>
-                <div><strong id="minutes">39</strong><span>Min</span></div>
-              </div>
-              <a
-                class="btn btn-primary"
-                href="https://wa.me/51944861404?text=Hola%20XPRESS%20Fitness%20PRO%2C%20quiero%20reservar%20la%20promoci%C3%B3n%20actual."
-                target="_blank"
-                rel="noreferrer"
-                >Reservar via WhatsApp</a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section loyalty-section">
-        <div class="container loyalty-grid">
-          <div class="loyalty-text">
-            <span class="eyebrow">Fidelidad que funciona</span>
-            <h2>Tu compra no termina cuando llega la máquina: empieza la relación.</h2>
-            <p>
-              En XPRESS Fitness PRO creamos una relación de largo plazo: seguimiento,
-              planes de entrenamiento, recargas de accesorios y recompensas por continuidad y disciplina.
-            </p>
-          </div>
-
-          <div class="loyalty-points">
-            <div class="point-row">
-              <span>1 compra</span>
-              <strong>+100 puntos</strong>
-            </div>
-            <div class="point-row">
-              <span>Plan mensual</span>
-              <strong>+250 puntos</strong>
-            </div>
-            <div class="point-row">
-              <span>Referidos</span>
-              <strong>+500 puntos</strong>
-            </div>
-            <div class="point-row highlight">
-              <span>Canje</span>
-              <strong>Accesorios + descuentos</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="opiniones">
         <div class="container">
-          <div class="section-heading center">
-            <span class="eyebrow">La voz de quienes ya cambian</span>
-            <h2>Clientes que compraron y no volvieron a dejar el hábito.</h2>
+          <div class="section-heading">
+            <span class="eyebrow">Precios de temporada</span>
+            <h2>Equipos con precio rebajado.</h2>
+            <p class="section-lead">
+              Precio anterior y precio actual, tal cual. Los precios pueden cambiar: confírmalos
+              antes de decidir.
+            </p>
           </div>
+          <div class="deal-list" data-deals></div>
+        </div>
+      </section>
 
-          <div class="testimonial-grid">
-            <blockquote class="testimonial">
-              “La máquina me motivó a entrenar sin excusas. La sensación de progreso fue instantánea.”
-              <footer>
-                <strong>Andrea L.</strong>
-                <span>Cliente premium</span>
-              </footer>
-            </blockquote>
-            <blockquote class="testimonial">
-              “El servicio fue claro, rápido y con atención real. Me sentí acompañada desde la primera visita.”
-              <footer>
-                <strong>Mateo R.</strong>
-                <span>Cliente Plus</span>
-              </footer>
-            </blockquote>
-            <blockquote class="testimonial">
-              “Ahora mi casa se convirtió en mi gimnasio. La calidad y la motivación lo valen completamente.”
-              <footer>
-                <strong>Valeria T.</strong>
-                <span>Cliente activo</span>
-              </footer>
-            </blockquote>
+      <section class="section" id="preguntas">
+        <div class="container faq-wrap">
+          <div class="section-heading">
+            <span class="eyebrow">Preguntas frecuentes</span>
+            <h2>Lo que suelen preguntarnos.</h2>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>¿Hacen envíos a todo el Perú?</summary>
+              <p>
+                Sí, enviamos a nivel nacional. El costo y el tiempo de entrega varían según tu ciudad:
+                consúltanos por WhatsApp para el detalle exacto.
+              </p>
+            </details>
+            <details>
+              <summary>¿Qué formas de pago aceptan?</summary>
+              <p>Escríbenos por WhatsApp y te contamos las formas de pago disponibles.</p>
+            </details>
+            <details>
+              <summary>¿El equipo llega armado o hay que armarlo?</summary>
+              <p>Depende del equipo. Consúltanos y te decimos si llega armado o necesita instalación.</p>
+            </details>
+            <details>
+              <summary>¿Tienen garantía?</summary>
+              <p>Consúltanos por WhatsApp las condiciones de garantía del equipo que te interesa.</p>
+            </details>
+            <details>
+              <summary>¿Puedo ver el equipo antes de comprar?</summary>
+              <p>Escríbenos y coordinamos fotos, video o una visita, según el equipo.</p>
+            </details>
+            <details>
+              <summary>¿Los precios rebajados tienen fecha límite?</summary>
+              <p>Los precios pueden cambiar. Confírmalos con nosotros por WhatsApp antes de decidir.</p>
+            </details>
+            <details>
+              <summary>¿Cómo elijo si no sé por dónde empezar?</summary>
+              <p>
+                Piensa en cuatro cosas: el espacio que tienes, tu objetivo, tu presupuesto y cuántas veces
+                a la semana vas a entrenar. Con eso, la
+                <a href="#objetivo">guía de objetivos</a> te orienta, y si quieres, lo vemos juntos.
+              </p>
+            </details>
           </div>
         </div>
       </section>
@@ -407,15 +514,25 @@
       <section class="section cta-section" id="contacto">
         <div class="container cta-box">
           <div>
-            <span class="eyebrow">Cotización rápida</span>
-            <h2>Agenda tu cotización y empieza a mover tu objetivo.</h2>
-            <p>Consulta personalizada, recomendación técnica y propuesta adaptada a tu espacio, objetivos y presupuesto para que compres con confianza y sin rodeos.</p>
+            <span class="eyebrow">Sin apuros</span>
+            <h2>Tu rutina empieza cuando tú quieras.</h2>
+            <p>
+              Escríbenos, resuelve tus dudas y arma tu espacio de entrenamiento a tu ritmo. Te
+              respondemos por WhatsApp.
+            </p>
           </div>
 
           <form class="contact-form" id="quoteForm">
             <input type="text" id="nameInput" placeholder="Tu nombre" aria-label="Tu nombre" required />
-            <input type="email" id="emailInput" placeholder="Correo electrónico" aria-label="Correo electrónico" required />
-            <button type="submit" class="btn btn-primary">Cotizar ahora</button>
+            <select id="interestInput" aria-label="¿Qué te interesa?">
+              <option value="un equipo">¿Qué te interesa?</option>
+              <option value="equipos de cardio">Cardio</option>
+              <option value="equipos de fuerza">Fuerza</option>
+              <option value="equipos de core">Core</option>
+              <option value="la línea rosa">Línea rosa</option>
+              <option value="armar un espacio completo">Armar un espacio completo</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Escribir por WhatsApp</button>
           </form>
         </div>
       </section>
@@ -423,53 +540,81 @@
       <section class="section social-section">
         <div class="container social-wrap">
           <div class="social-copy">
-            <span class="eyebrow">Síguenos</span>
-            <h2>Más que una marca: una comunidad fitness activa.</h2>
+            <span class="eyebrow">#XpressFitnessPRO · #EntrenaEnCasaPeru</span>
+            <h2>Si te gustan estas rutinas, síguenos para más ideas.</h2>
           </div>
 
-          <div class="social-links" aria-label="Canales de contacto de XPRESS Fitness PRO">
-            <a href="https://wa.me/51944861404?text=Hola%20XPRESS%20Fitness%20PRO%2C%20quiero%20cotizar%20mi%20equipo." target="_blank" rel="noreferrer" class="social-badge">WhatsApp</a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" class="social-badge">Instagram</a>
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" class="social-badge">Facebook</a>
+          <div class="social-links" aria-label="Canales de XPRESS Fitness PRO">
+            <a href="https://wa.me/51944861404?text=Hola%20XPRESS%20Fitness%20PRO%2C%20tengo%20una%20consulta." target="_blank" rel="noreferrer" class="social-badge is-whatsapp"><svg aria-hidden="true"><use href="#i-whatsapp" /></svg>WhatsApp</a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" class="social-badge is-instagram"><svg aria-hidden="true"><use href="#i-instagram" /></svg>Instagram</a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" class="social-badge is-facebook"><svg aria-hidden="true"><use href="#i-facebook" /></svg>Facebook</a>
           </div>
         </div>
       </section>
     </main>
 
+    <!-- Visor de productos -->
+    <dialog class="product-viewer" data-viewer aria-labelledby="viewerTitle">
+      <div class="viewer-body">
+        <div class="viewer-media">
+          <img data-viewer-img alt="" />
+          <button class="viewer-nav viewer-prev" type="button" data-viewer-prev aria-label="Imagen anterior">‹</button>
+          <button class="viewer-nav viewer-next" type="button" data-viewer-next aria-label="Imagen siguiente">›</button>
+          <div class="viewer-thumbs" data-viewer-thumbs></div>
+        </div>
+        <div class="viewer-info">
+          <span class="cat-tag" data-viewer-cat></span>
+          <h3 id="viewerTitle" data-viewer-title></h3>
+          <p class="viewer-hook" data-viewer-hook></p>
+          <p class="viewer-use" data-viewer-use></p>
+          <ul class="viewer-data" data-viewer-data></ul>
+          <p class="viewer-price" data-viewer-price></p>
+          <a class="btn btn-primary viewer-cta" data-viewer-cta target="_blank" rel="noreferrer">Consultar por WhatsApp</a>
+          <p class="viewer-note">Sin compromiso: te respondemos tus dudas.</p>
+        </div>
+      </div>
+      <button class="viewer-close" type="button" data-viewer-close aria-label="Cerrar">✕</button>
+    </dialog>
+
     <footer class="site-footer">
       <div class="container footer-wrap">
         <div>
-          <div class="brand footer-brand">
+          <div class="footer-brand">
             <img
-              class="brand-logo footer-logo"
+              class="footer-logo"
               src="assets/marca/marquilla.png"
-              alt="Marquilla XPRESS Fitness PRO"
+              alt="XPRESS Fitness PRO"
+              width="845"
+              height="295"
+              loading="lazy"
             />
           </div>
         </div>
 
         <div class="footer-links">
-          <a href="#maquinas">Máquinas</a>
-          <a href="#beneficios">Beneficios</a>
-          <a href="#ofertas">Promociones</a>
-          <a href="#contacto">Contacto</a>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#objetivo">Objetivos</a>
+          <a href="#espacio">Arma tu espacio</a>
+          <a href="#rutinas">Rutinas</a>
+          <a href="#preguntas">Preguntas</a>
         </div>
 
         <div>
-          <p>© <span id="year"></span> XPRESS Fitness PRO</p>
+          <p>© <span id="year"></span> XPRESS Fitness PRO · Envíos a todo el Perú</p>
         </div>
       </div>
     </footer>
 
     <a
       class="whatsapp-float"
-      href="https://wa.me/51944861404?text=Hola%20XPRESS%20Fitness%20PRO%2C%20quiero%20cotizar%20una%20m%C3%A1quina."
+      href="https://wa.me/51944861404?text=Hola%20XPRESS%20Fitness%20PRO%2C%20tengo%20una%20consulta."
       target="_blank"
       rel="noreferrer"
       aria-label="Contactar por WhatsApp"
       >WhatsApp</a
     >
 
-    <script src="script.js"></script>
+    <script src="productos.js?v=8"></script>
+    <script src="script.js?v=8"></script>
   </body>
 </html>

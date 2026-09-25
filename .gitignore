@@ -1,7 +1,8 @@
-assets/videos/
-*.mp4
-*.mov
-*.avi
-*.mkv
-*.webm
+# Sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store
 
+# Editor
+.vscode/
+*.log
