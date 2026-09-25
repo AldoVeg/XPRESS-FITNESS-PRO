@@ -636,6 +636,27 @@ initKits();
 initRoutines();
 initDeals();
 
+/* ---------- Compartir la página como tarjeta de presentación ----------
+   En celular abre el menú nativo (WhatsApp, Facebook…); en computadora,
+   WhatsApp con el enlace. La vista previa sale de las etiquetas og:* del <head>. */
+
+const SITE_URL = "https://aldoveg.github.io/XPRESS-FITNESS-PRO/";
+const SHARE_TEXT = "XPRESS Fitness PRO · Equipos de gimnasio para tu casa, con envíos a todo el Perú";
+
+document.querySelectorAll("[data-share]").forEach((button) => {
+  button.addEventListener("click", async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: "XPRESS Fitness PRO", text: SHARE_TEXT, url: SITE_URL });
+        return;
+      } catch (error) {
+        if (error.name === "AbortError") return;
+      }
+    }
+    window.open(`https://wa.me/?text=${encodeURIComponent(`${SHARE_TEXT}\n${SITE_URL}`)}`, "_blank");
+  });
+});
+
 /* ---------- Formulario de contacto → WhatsApp ---------- */
 
 const form = document.querySelector(".contact-form");
